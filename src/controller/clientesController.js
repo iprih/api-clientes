@@ -29,9 +29,14 @@ exports.post = (req, res) => {
   }
 
   exports.getCompradores = (req, res) => {
-      Clientes.find(function(err, compradores){
+      Clientes.find({"comprou" : true}, function(err, clientes){
           if (err) res.status(500).send(err);
-          res.status(200).send(compradores)
-          
+          const clientesRetorno = clientes.map(cliente => {
+              return{
+                  nome: cliente.nome,
+                  email: cliente.email
+              }
+          })
+          res.status(200).send(clientesRetorno)          
       })
   }
