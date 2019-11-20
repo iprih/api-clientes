@@ -40,3 +40,13 @@ exports.post = (req, res) => {
           res.status(200).send(clientesRetorno)          
       })
   }
+
+
+  exports.getCpf = (req, res) => {
+      const cpf = req.params.cpf
+    Clientes.find({cpf}, function(err, cliente){
+        if (err) res.status(500).send(err);
+        
+        res.status(200).send(cliente)          
+    })
+}
