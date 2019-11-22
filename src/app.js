@@ -5,6 +5,7 @@ const bodyParser = require('body-parser') // converte
 const app = express()
 
 mongoose.connect("mongodb://localhost:27017/clientes", {useNewUrlParser: true});
+//mongoose.connect("mongodb://admin:reprograma1@ds225902.mlab.com:25902/reprogramameli",  { useNewUrlParser: true });
 
 const db = mongoose.connection;
 db.on("error", console.log.bind(console, "connection error:"))
