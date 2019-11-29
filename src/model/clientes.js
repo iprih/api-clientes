@@ -3,6 +3,7 @@ const mongoose = require('mongoose');//estabelece a conexão
 const ClientesSchema = new mongoose.Schema({
 
 nome: {type: String},
+password: {type: String}, // inclui o password
 email: {type: String}, // required:true <- deixa como obrigatorio
 cpf: {type: Number},
 dataNascimento: {type: Date},

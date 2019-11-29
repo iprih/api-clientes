@@ -2,6 +2,7 @@
 const express = require("express")
 const mongoose = require("mongoose")
 const bodyParser = require('body-parser') // converte 
+
 const app = express()
 
 mongoose.connect("mongodb://localhost:27017/clientes", {useNewUrlParser: true});
@@ -16,6 +17,7 @@ db.once("open", function(){
 
 
 const clientes = require("./routes/clientesRoutes")
+
 // controla quem vai ter acesso (o *)
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*")
@@ -26,6 +28,7 @@ app.use(function(req, res, next) {
     next()
   })
   
+app.use(express.static("public"));
 
 app.use(bodyParser.json())
 
